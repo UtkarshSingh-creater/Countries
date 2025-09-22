@@ -5,7 +5,7 @@ const code = params.get("code");
 
 async function fetchCountry(code) {
   try {
-    const res = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+    const res = await fetch(`https://api.allorigins.win/raw?url=https://www.apicountries.com/countries${code}`);
     if (!res.ok) throw new Error("Country not found");
     const data = await res.json();
     displayCountry(data[0]);
@@ -38,4 +38,5 @@ if (code) {
   fetchCountry(code);
 } else {
   infoContainer.innerHTML = "<p style='color:red;'>No country selected.</p>";
+
 }
